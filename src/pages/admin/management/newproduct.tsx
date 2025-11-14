@@ -126,11 +126,12 @@ const NewProduct = () => {
             </div>
 
             {photos.error && <p>{photos.error}</p>}
-
-            {photos.preview &&
-              photos.preview.map((img, i) => (
-                <img key={i} src={img} alt="New Image" />
-              ))}
+            <div style={{ display: "flex", gap: "1rem", overflowX: "auto" }}>
+              {photos.preview &&
+                photos.preview.map((img, i) => (
+                  <img style={{ width: 100, height: 100, objectFit: "cover" }} key={i} src={img} alt="New Image" />
+                ))}
+            </div>
 
             <button disabled={isLoading} type="submit">
               Create
