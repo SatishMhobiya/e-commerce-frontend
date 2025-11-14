@@ -45,10 +45,10 @@ const Discount = () => {
     data,
     loading: isLoading,
     error,
-  } = useFetchData<AllDiscountResponse>(
-    `${server}/api/v1/payment/coupon/all?id=${user?._id}`,
-    "discount-codes"
-  );
+  } = useFetchData<AllDiscountResponse>({
+    url: `${server}/api/v1/payment/coupon/all?id=${user?._id}`,
+    dependencyProps: [user?._id || ""],
+  });
 
   const [rows, setRows] = useState<DataType[]>([]);
 
