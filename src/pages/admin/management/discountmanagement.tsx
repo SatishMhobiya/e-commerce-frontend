@@ -21,7 +21,7 @@ const DiscountManagement = () => {
     error,
   } = useFetchData<SingleDiscountResponse>({
     url: `${server}/api/v1/payment/coupon/${id}?id=${user?._id}`,
-    dependencyProps: [id || "", user?._id || ""],
+    dependencyProps: [id ?? "", user?._id ?? ""],
   });
 
   if (error) {
